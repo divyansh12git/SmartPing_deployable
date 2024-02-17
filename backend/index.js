@@ -12,7 +12,7 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 // console.log(process.env.GEMINI_API);
 
-async function run() {
+async function generateContentFromGemini() {
     const generationConfig = {
        
         // maxOutputTokens: 200,

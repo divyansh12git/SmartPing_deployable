@@ -1,12 +1,13 @@
 import express from "express";
 import   {GoogleGenerativeAI} from "@google/generative-ai" ;
 import 'dotenv/config';
-
+import cors from "cors";
+import bodyParser from "body-parser";
 
 const app=express();
 const PORT=4000;
-
-
+app.use(cors());
+app.use(bodyParser.urlencoded({extended:true}));
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 
@@ -72,7 +73,9 @@ async function generateContentFromGemini() {
 
 
 
-
+app.post("/chatbot",(req,res)=>{
+  console.log(req.body);
+});
 
 
 const data={

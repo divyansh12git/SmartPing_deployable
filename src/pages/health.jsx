@@ -1,8 +1,12 @@
 import React from 'react'
+import NavBar from '../components/navbar';
 
 function Health() {
   return (
-    <div>Health</div>
+    <div>
+      <NavBar tcolor={"text-[#E94235]"}/>
+      Health
+    </div>
   )
 }
 

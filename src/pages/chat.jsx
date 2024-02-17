@@ -1,8 +1,12 @@
 import React from 'react'
+import NavBar from '../components/navbar';
 
 function Chat() {
   return (
-    <div>Chat</div>
+    <div>
+      <NavBar tcolor={"text-[#4285F4]"}/>
+      Chat
+    </div>
   )
 }
 

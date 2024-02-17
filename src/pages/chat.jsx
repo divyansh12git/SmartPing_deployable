@@ -11,7 +11,7 @@ function Chat() {
   }
   return (
     <>
-      <NavBar />
+      <NavBar tcolor={"text-[#4285F4]"}/>
       <div className='h-[89vh] w-full  flex flex-col justify-center items-center gap-5'>
       <div className="h-[60vh] w-[60vw]  rounded-xl border border-black "></div>
       <form className="flex gap-5" onSubmit={(e)=>{handlechat(e)}} action='http://localhost:4000/chatbot' method="POST">

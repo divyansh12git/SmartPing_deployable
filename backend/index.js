@@ -3,12 +3,59 @@ import express from "express";
 import 'dotenv/config';
 import cors from "cors";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import User from "./models/User.js";
+import seedDB from "./seed.js";
+import passport from "passport";
+import LocalStrategy from "passport-local";
+import session from "express-session";
+import authRoutes from './routes/auth.js';
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 
 const app=express();
 const PORT=4000;
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
+
+const dbURL = 'mongodb+srv://Divyansh:Divyansh@cluster0.n8u9pu6.mongodb.net/smartping?retryWrites=true&w=majority';
+
+mongoose.set('strictQuery', true);
+mongoose.connect(dbURL)
+    .then(() => console.log('DB Connected'))
+    .catch((err) => console.log(err));
+
+
+const sessionConfig = {
+  name:'teamhackhavoc',
+  secret: 'mujhekoisecretkeybatao',
+  resave: false,
+  saveUninitialized: true,
+  cookie:{
+      httpOnly:true,
+      expires:Date.now() + 1000*60*60*24*7,
+      maxAge: 1000*60*60*24*7
+  }
+}
+
+app.use(session(sessionConfig));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+passport.use(new LocalStrategy(User.authenticate()));
+
+
+// seedDB()
+
+
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 
@@ -72,9 +119,7 @@ async function generateContentFromGemini() {
     return text;
 }
 
-import * as fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 function fileToGenerativePart(path, mimeType) {
@@ -124,6 +169,11 @@ const data={
 app.get('/',(req,res)=>{
     res.json(data);
 })
+
+
+app.use(authRoutes);
+
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running on ${PORT}`)

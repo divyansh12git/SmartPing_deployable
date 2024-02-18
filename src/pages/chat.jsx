@@ -45,7 +45,7 @@ function Chat() {
   }
   return (
     <>
-      <NavBar />
+      <NavBar tcolor={"text-[#4285F4]"}/>
       <div className='h-[80vh] w-full  flex flex-col justify-center items-center gap-5'>
       <div className="h-[60vh] w-[60vw]  flex flex-col justify-end rounded-xl border border-black overflow-auto py-5" id='chat' ref={myRef}>
         

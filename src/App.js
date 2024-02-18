@@ -11,13 +11,17 @@ import Health from "./pages/health";
 import AboutUs from "./pages/aboutus";
 import Traffic from "./pages/traffic";
 import ImageAnalyzer from "./pages/imageanalyzer";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
 
 
 const App=()=>{
   return(
     <Router>
         <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
         <Route path="/chat" element={<Chat />}></Route>
         <Route path="/health" element={<Health />}></Route>
         <Route path="/traffic" element={<Traffic />}></Route>

@@ -8,8 +8,8 @@ const Features = (props) => {
     // console.log("clicked")
   }
   return (
-    <div>
-      <div className={`${props.reverse} `}>
+    <div >
+    <div className={`${props.reverse} `}>
     <img src={props.image_url}  alt='chat' className={`${props.size}  mt-5`}/>
     <div className='flex flex-col gap-10 max-w-[45rem]'>
       <h1 className={`text-4xl font-medium  mt-24 ${props.tcolor} font-["Inter"]`}>{props.heading}</h1>
@@ -21,6 +21,7 @@ const Features = (props) => {
       </div>
     </div>
     </div>
+    {/* <img src='/images/dsgn1.png' alt='design' className='absolute right-0 z-0'/> */}
     </div>
   )
 }

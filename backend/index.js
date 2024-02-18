@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 
-const dbURL = 'mongodb://127.0.0.1:27017/smartping';
+const dbURL = 'mongodb+srv://Divyansh:Divyansh@cluster0.n8u9pu6.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.set('strictQuery', true);
 mongoose.connect(dbURL)

@@ -10,6 +10,7 @@ import Chat from "./pages/chat";
 import Health from "./pages/health";
 import AboutUs from "./pages/aboutus";
 import Traffic from "./pages/traffic";
+import Imguploader from "./pages/Imguploader";
 import ImageAnalyzer from "./pages/imageanalyzer";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
@@ -26,7 +27,7 @@ const App=()=>{
         <Route path="/health" element={<Health />}></Route>
         <Route path="/traffic" element={<Traffic />}></Route>
         <Route path="/aboutUs" element={<AboutUs />}></Route>
-        <Route path="/imageAnalyzer" element={<ImageAnalyzer />}></Route>
+        <Route path="/Imguploader" element={<Imguploader />}></Route>
         </Routes>
     </Router>
   )

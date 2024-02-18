@@ -74,6 +74,8 @@ async function generateContentFromGemini() {
 
 
 
+//firebase connection
+
 
 
 

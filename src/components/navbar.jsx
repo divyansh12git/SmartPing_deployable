@@ -25,7 +25,7 @@ function NavBar(props) {
             <Link to='/chat'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Chat</li></Link>
             <Link to='/health'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Health</li></Link>
             <Link to='/traffic'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Traffic</li></Link>
-            <Link to='/imageAnalyzer'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Image Analyzer</li></Link>
+            <Link to='/imguploader'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Image Analyzer</li></Link>
             <Link to='/aboutUs'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>About Us</li></Link>
             <button onClick={logoutHandler} className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full border-solid border-2 text-white bg-[#4285F4]' >LogOut</button>
         </ul>

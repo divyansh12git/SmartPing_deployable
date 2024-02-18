@@ -1,8 +1,12 @@
 import React from 'react'
+import NavBar from '../components/navbar';
 
 function ImageAnalyzer() {
   return (
-    <div>ImageanAnalyzer</div>
+    <div>
+      <NavBar tcolor={"text-[#FABB05]"}/>
+      ImageanAnalyzer
+    </div>
   )
 }
 

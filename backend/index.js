@@ -93,7 +93,6 @@ async function imageToInput() {
 
   const imageParts = [
     fileToGenerativePart(`abc.png`, "image/png"),
-    
   ];
 
   const result = await model.generateContent([prompt, ...imageParts]);

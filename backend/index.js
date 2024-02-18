@@ -85,14 +85,14 @@ function fileToGenerativePart(path, mimeType) {
     },
   };
 }
-async function imageToInput() {
+async function imageToInput(file,promptData) {
   // For text-and-image input (multimodal), use the gemini-pro-vision model
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
-  const prompt = "Explain this picture?";
+  const prompt = promptData;
 
   const imageParts = [
-    fileToGenerativePart(`abc.png`, "image/png"),
+    fileToGenerativePart(`./abc.png`, "image/png"),
   ];
 
   const result = await model.generateContent([prompt, ...imageParts]);
@@ -115,6 +115,14 @@ app.post("/chatbot",async(req,res)=>{
   console.log(output);
   res.send({"botResponse":output});
 });
+app.post("/imageprompt",async(req,res)=>{
+  const file=req.body.file;
+  const prompt=req.body.prompt;
+  // const output=await imageToInput(file,prompt)
+  const output="data";
+  res.send({"botResponse":optput})
+})
+
 
 
 const data={

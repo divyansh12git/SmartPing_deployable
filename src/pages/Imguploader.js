@@ -1,17 +1,22 @@
-import {useState} from 'react'
-import './Imguploader.css'
-import { MdCloudUpload, MdDelete }from 'react-icons/md' 
-import { AiFillFileImage, AiFillImage } from 'react-icons/ai'
+import {useState} from 'react';
+import './Imguploader.css';
+import { MdCloudUpload, MdDelete } from 'react-icons/md'; 
+import { AiFillFileImage } from 'react-icons/ai';
+import NavBar from '../components/navbar';
+
 function Imguploader() {
-    const [image, setImage]=useState(null)
+    const [image, setImage]=useState(null);
     const [fileName, setFileName]=useState("No selected file")
   return (
-    <main>
-    <form action="" onClick={() =>document.querySelector(".input-field").click()}>
+
+    <main className="w-full h-[80vh] flex flex-col justify-center items-center">
+    <NavBar tcolor={"text-[#FABB05]"}/>
+    <form action="" onClick={() =>document.querySelector(".input-field").click()} className='analyzerForm'>
         <input type="file" accept='image/*' className='input-field' hidden
         onChange={({ target: {files}}) => {files[0] && setFileName(files[0].name)
         if(files){
-            setImage(URL.createObjectURL(files[0]))
+            setImage(URL.createObjectURL(files[0]));
+            // console.log(image);
         }
         }}/>
         {image ?
@@ -23,7 +28,7 @@ function Imguploader() {
         </>
         }
     </form>
-    <section className='uploaded-row'>
+    <section className='uploaded-row w-[49%] border border-black'>
         <AiFillFileImage color='black'></AiFillFileImage>
         <span className='upload-content'>
             {fileName}
@@ -37,4 +42,4 @@ function Imguploader() {
   )
 }
 
-export default Imguploader
+export default Imguploader;

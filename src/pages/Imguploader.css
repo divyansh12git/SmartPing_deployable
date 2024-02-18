@@ -1,4 +1,4 @@
-form{
+.imageAnalyzerform{
     display: flex;
     background-color: rgb(251, 251, 202);
     flex-direction: column;

@@ -7,7 +7,7 @@ function Imguploader() {
     const [fileName, setFileName]=useState("No selected file")
   return (
     <main>
-    <form action="" onClick={() =>document.querySelector(".input-field").click()}>
+    <form action="" className='imageAnalyzerform' onClick={() =>document.querySelector(".input-field").click()}>
         <input type="file" accept='image/*' className='input-field' hidden
         onChange={({ target: {files}}) => {files[0] && setFileName(files[0].name)
         if(files){

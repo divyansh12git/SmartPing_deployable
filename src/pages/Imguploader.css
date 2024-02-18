@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    background-color: rgb(251, 251, 202);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    height: 400px;
+    width: 750px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.uploaded-row{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #ecfc86;
+}
+.upload-content{
+    display: flex;
+    align-items: center;
+}

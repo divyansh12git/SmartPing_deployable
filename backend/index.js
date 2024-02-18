@@ -72,6 +72,37 @@ async function generateContentFromGemini() {
     return text;
 }
 
+import * as fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+function fileToGenerativePart(path, mimeType) {
+  return {
+    inlineData: {
+      data: Buffer.from(fs.readFileSync(path)).toString("base64"),
+      mimeType
+    },
+  };
+}
+async function imageToInput() {
+  // For text-and-image input (multimodal), use the gemini-pro-vision model
+  const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
+
+  const prompt = "Explain this picture?";
+
+  const imageParts = [
+    fileToGenerativePart(`abc.png`, "image/png"),
+    
+  ];
+
+  const result = await model.generateContent([prompt, ...imageParts]);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+}
+// imageToInput();
+
 
 
 //firebase connection
@@ -89,7 +120,7 @@ app.post("/chatbot",async(req,res)=>{
 
 const data={
     response:"server",
-    hi:"bro"
+    directory:__dirname
 }
 app.get('/',(req,res)=>{
     res.json(data);

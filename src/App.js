@@ -10,9 +10,7 @@ import Chat from "./pages/chat";
 import Health from "./pages/health";
 import AboutUs from "./pages/aboutus";
 import Traffic from "./pages/traffic";
-import ImageAnalyzer from "./pages/imageanalyzer";
-
-
+import Imguploader from "./pages/Imguploader";
 const App=()=>{
   return(
     <Router>
@@ -22,7 +20,7 @@ const App=()=>{
         <Route path="/health" element={<Health />}></Route>
         <Route path="/traffic" element={<Traffic />}></Route>
         <Route path="/aboutUs" element={<AboutUs />}></Route>
-        <Route path="/imageAnalyzer" element={<ImageAnalyzer />}></Route>
+        <Route path="/Imguploader" element={<Imguploader />}></Route>
         </Routes>
     </Router>
   )

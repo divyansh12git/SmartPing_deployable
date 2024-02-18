@@ -10,7 +10,7 @@ function NavBar() {
             <a href='/chat'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Chat</li></a>
             <a href='/health'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Health</li></a>
             <a href='/traffic'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Traffic</li></a>
-            <a href='/imageAnalyzer'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Image Analyzer</li></a>
+            <a href='/Imguploader'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>Image Analyzer</li></a>
             <a href='/aboutUs'><li className='hover:bg-gray-600 hover:text-white  px-4 py-1 rounded-full'>About Us</li></a>
             
         </ul>

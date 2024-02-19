@@ -25,7 +25,7 @@ function Chat() {
     
     maindiv.innerHTML=newElement;
     myRef.current.appendChild(maindiv);
-
+    scrollToLastMessage();
     const responseData=await sendToGemini(data);
     // console.log(responseData);
     let response=document.createElement('div');
@@ -36,9 +36,13 @@ function Chat() {
     </div>`
     response.innerHTML=responseHTML;
     myRef.current.appendChild(response)
-    myRef.scrollTop = myRef.scrollHeight;
+    scrollToLastMessage();
 
   }
+  const scrollToLastMessage = () => {
+    const lastChildElement = myRef.current?.lastElementChild;
+    lastChildElement?.scrollIntoView({ behavior: 'smooth' });
+  };
   const handleInput=(e)=>{
     setUserInput(e.target.value);
     // console.log(e.target.value)

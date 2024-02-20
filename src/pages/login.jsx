@@ -10,6 +10,9 @@ const Login = () => {
     const signuphandler=()=>{
         navigate('/signup')
     }
+     
+   
+    
 
     const loginHandler=async(e)=>{
         e.preventDefault();
@@ -20,6 +23,8 @@ const Login = () => {
             console.log(res);
             // navigate('/home');
             if(res.data.msg==="Successfully Logged In"){
+                localStorage.setItem('user',JSON.stringify(res.data.user));
+                
                 navigate('/home');
             }else{
                 alert("Invalid Username or Password");
@@ -62,5 +67,6 @@ const Login = () => {
         </div>
     )
 }
+
 
 export default Login

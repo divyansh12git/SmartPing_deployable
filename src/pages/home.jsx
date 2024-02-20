@@ -1,8 +1,8 @@
+import  React, { useState, useEffect } from 'react';
 import NavBar from '../components/navbar'
 import Features from '../components/features';
 import Foot from '../components/foot';
 import '../App.css';
-import React, { useState} from 'react';
 import styled from "styled-components";
 import Axios from "axios";
 import CityComponent from '../components/CityComponent';
@@ -11,6 +11,7 @@ import Locations from '../components/Locations';
 import Calendar from '../components/Calendar';
 import Health from '../components/Health';
 import Gemini from '../components/Gemini';
+import { getHealthTip,getPersonalizedResponse } from '../components/api';
 
 export const WeatherIcons = {
   "01d": "../icons/sunny.svg",
@@ -37,10 +38,14 @@ const Container = styled.div`
   align-items: center;
   width: 380px;
   padding: 20px 10px;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px 0 #555;
+  border-radius: 1rem;
   background: white;
-  font-family: Montserrat;
+  margin-right:-60rem;
+  transform:scale(0.8);
+  margin-top:-3.2rem;
+  border:0.5px solid black;
+  
+  
 `;
 
 const AppLabel = styled.span`
@@ -50,27 +55,27 @@ const AppLabel = styled.span`
   font-weight: bold;
 `;
 
-const Frame = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const LeftSide = styled.div`
-  flex: 1;
-`;
-
-const RightSide = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  margin-left: 10px; 
-`;
 
 function Home() {
 
   const [city, updateCity] = useState();
   const [weather, updateWeather] = useState();
+
+  const [healthTip,setHealthTip]=useState("...");
+  const [greet,setGreet]=useState("...");
+  useEffect(()=>{
+    // console.log("Hiiii")
+    async function fetchdata(){
+      let res=await getHealthTip();
+      let res2=await getPersonalizedResponse();
+      setHealthTip(res.data.data);
+      setGreet(res2.data.data);
+    }
+    fetchdata();
+    console.log(healthTip)
+    
+  },[])
+
   const fetchWeather = async (e) => {
     e.preventDefault();
     const response = await Axios.get(
@@ -82,13 +87,20 @@ function Home() {
   return (
     <div>
     <NavBar tcolor={"text-[#4285F4]"}/>
-    <React.Fragment>
+    <div className='h-[100%] w-full flex  items-center  flex-col'>
+    <div className='w-full flex flex-col pl-16 '>
+      <p className='text-[3rem] justify-self-start'>Welcome Divyansh</p>
+      <p className='ml-8 text-[1.5rem]'>Patna, Bihar</p>
+    </div>
+    
+    
       <Locations />
-      <Frame>
-        <LeftSide>
+      <div className='flex justify-center w-full '>
+        <div className='flex relative items-end'>
+          
           <Calendar />
-        </LeftSide>
-        <RightSide>
+        
+        
         <Container>
       <AppLabel>Weather Update</AppLabel>
       {city && weather ? (
@@ -97,13 +109,17 @@ function Home() {
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
     </Container>
-    </RightSide>
-    <RightSide>
-          <Health />
-          <Gemini />
-        </RightSide>
-      </Frame>
-    </React.Fragment>
+    
+   
+          <Health tip={healthTip} />  
+          </div>
+          <Gemini greet={greet} />
+      
+      </div>
+      
+    </div>
+
+
     <Features size='w-auto h-[30rem] mt-5 mr-2' tcolor="text-[#4285F4]" image_url='/images/chat.jpg' heading='Ask Your Doubts?' reverse='flex flex-row gap-20 justify-center mt-10' t_color='bg-[#4285F4]' redirect='chat' body=" SmartPing's Chatbot functionality provides on-demand assistance, addressing users  ' inquiries and doubts promptly. Harnessing natural language processing capabilities, the Chatbot swiftly addresses user inquiries, offering guidance, information, and troubleshooting assistance. Whether users seek directions, recommendations, This interactive feature ensures a personalized and efficient user experience, catering to diverse needs and preferences." />
     <Features size='w-auto h-[30rem] my-5 mr-2' tcolor="text-[#099884]" image_url='/images/map.jpg' heading='Get Fastest Route' reverse='flex flex-row-reverse  justify-center my-10  ' t_color='bg-[#099884]' redirect='traffic' body="SmartPing's Traffic Analyzer utilizes real-time data to identify the quickest routes, reducing congestion and expediting travel. By analyzing traffic patterns and road conditions, it guides users towards efficient pathways, minimizing delays and enhancing overall commuting experiences, ultimately facilitating smoother traffic flow and reducing congestion." />
     <Features size='w-auto h-[25rem] my-5 mr-2 ml-4' tcolor="text-[#E94235]" image_url='/images/health.jpg' heading='Health Updates' reverse='flex flex-row gap-20 justify-center my-10' t_color='bg-[#E94235]'  redirect='health' body=" SmartPing aims to streamline daily life by providing essential services and information at the fingertips of its users. One of its standout features is the Health Analysis page, offering a comprehensive overview of nearby medical resources such as pharmacies and hospitals, along with essential health precautions relevant to the user's location." />

@@ -17,6 +17,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -66,7 +67,8 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 // console.log(process.env.GEMINI_API);
 
-async function generateContentFromGemini() {
+async function generateContentFromGemini(promptData) {
+  // console.log("I am called")
     const generationConfig = {
        
         // maxOutputTokens: 200,
@@ -77,12 +79,13 @@ async function generateContentFromGemini() {
     // For text-only input, use the gemini-pro model
     const model = genAI.getGenerativeModel({ model: "gemini-pro",generationConfig});
   
-    const prompt ="a short note on india";
+    const prompt =promptData;
     const { totalTokens } = await model.countTokens(prompt);
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
     console.log(text);
+    return text;
   }
 
   const ChatBot=async(input)=> {
@@ -193,6 +196,26 @@ const data={
 app.get('/',(req,res)=>{
     res.json(data);
 })
+app.get("/getgeminicontent",async (req,res)=>{
+  let prompt="Give me a health Advice in 4 line";
+  const result=await generateContentFromGemini(prompt);
+  const response={
+    data:result,
+  }
+  // console.log("I am first")
+  res.send(response);
+});
+
+app.get("/getgeminipersonalized",async (req,res)=>{
+  let prompt="Write 10 lines for the home page of a sustainable smart city website to greet and encourage users regarding the same";
+  const result=await generateContentFromGemini(prompt);
+  const response={
+    data:result,
+  }
+  // console.log("I am first")
+  res.send(response);
+});
+
 
 
 app.use(authRoutes);
@@ -202,3 +225,6 @@ app.use(authRoutes);
 app.listen(PORT,()=>{
     console.log(`Server is running on ${PORT}`)
 });
+
+
+

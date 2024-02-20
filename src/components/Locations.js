@@ -34,12 +34,12 @@ function Locations() {
     <div className='App'>
         {responseData && responseData.name && (
           <div>
-          <h1>Welcome Kashish</h1>
+          <h1 className='text-xl'>Welcome </h1>
           <h2><ImLocation />{responseData.name}</h2>
           </div>
         )}
       </div> 
-  )
+  );
 }
 
 export default Locations

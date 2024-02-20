@@ -1,4 +1,6 @@
 import axios from "axios";
+import removeMarkdown from "markdown-to-text";
+
 
 const sendToGemini=async(data)=>{
     console.log("Sending data to gemii");
@@ -40,4 +42,18 @@ const sentToGeminiVision=async(datafile,promptdata)=>{
     return response;
 }
 
-export {sendToGemini,sentToGeminiVision};
+const getHealthTip=async()=>{
+    let response=await axios.get("http://localhost:4000/getgeminicontent")
+    console.log(response);
+    return response;
+}
+
+const getPersonalizedResponse=async()=>{
+    let response=await axios.get("http://localhost:4000/getgeminipersonalized")
+    // await removeMarkdown(response);
+    console.log(response);
+    return response;
+}
+
+export {sendToGemini,sentToGeminiVision,getHealthTip,getPersonalizedResponse};
+

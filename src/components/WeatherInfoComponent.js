@@ -94,7 +94,7 @@ const WeatherComponent = (props) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
     }
     return (
-        <>
+        <>  
             <WeatherContainer>
                 <Condition>
                     <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>

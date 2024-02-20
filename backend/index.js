@@ -11,11 +11,15 @@ import LocalStrategy from "passport-local";
 import session from "express-session";
 import authRoutes from './routes/auth.js';
 import * as fs from 'fs';
+<<<<<<< HEAD
+
+=======
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 import { Buffer } from "buffer";
+>>>>>>> origin/main
 
 const app=express();
 const PORT=4000;
@@ -122,6 +126,19 @@ async function generateContentFromGemini() {
 }
 
 
+<<<<<<< HEAD
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// function fileToGenerativePart(path, mimeType) {
+//   return {
+//     inlineData: {
+//       data: Buffer.from(fs.readFileSync(path)).toString("base64"),
+//       mimeType
+//     },
+//   };
+// }
+async function imageToInput() {
+=======
 import fetch from "node-fetch";
 async function fileToGenerativePart(blobUrl, mimeType) {
   const b64 = await fetch(blobUrl)
@@ -142,6 +159,7 @@ async function fileToGenerativePart(blobUrl, mimeType) {
 
 
 async function imageToInput(file,promptData) {
+>>>>>>> origin/main
   // For text-and-image input (multimodal), use the gemini-pro-vision model
   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
 
@@ -149,14 +167,24 @@ async function imageToInput(file,promptData) {
   console.log(file);
   console.log(promptData);
 
+<<<<<<< HEAD
+  // const imageParts = [
+  //   fileToGenerativePart(`abc.png`, "image/png"),
+  // ];
+=======
   const imageParts = [
     fileToGenerativePart(file, "image/png"),
   ];
+>>>>>>> origin/main
 
   // const result = await model.generateContent([prompt, ...imageParts]);
   // const response = await result.response;
   // const text = response.text();
+<<<<<<< HEAD
+  // console.log(text);
+=======
   console.log(imageParts);
+>>>>>>> origin/main
 }
 
 //firebase connection
@@ -185,7 +213,7 @@ app.post("/imageprompt",async(req,res)=>{
 
 const data={
     response:"server",
-    directory:__dirname
+    directory:"abc"
 }
 app.get('/',(req,res)=>{
     res.json(data);

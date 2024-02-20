@@ -45,7 +45,7 @@ function Imguploader() {
     <div className="flex gap-5">
         
         <input onChange={(e)=>{setUserInput(e.target.value)}} value={userInput} className="w-[40vw] h-14 mt-4 rounded-full border border-black text-xl px-6" name='textInput' placeholder='What the image is about...'></input>
-        <button onClick={()=>{sendImage()}}  className="w-[9vw] h-14 mt-4 bg-[#4285F4] rounded-full border border-black text-xl text-white">SEND</button>
+        <button onClick={()=>{sendImage()}}  className="w-[9vw] h-14 mt-4 bg-[#FABB05] rounded-full border border-black text-xl text-white">SEND</button>
       </div>
     <section className='uploaded-row w-[49%] border border-black'>
         <AiFillFileImage color='black'></AiFillFileImage>

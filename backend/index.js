@@ -1,5 +1,7 @@
+import { Buffer } from "buffer";
+import fetch from "node-fetch";
 import express from "express";
-  import   {GoogleGenerativeAI} from "@google/generative-ai" ;
+import   {GoogleGenerativeAI} from "@google/generative-ai" ;
 import 'dotenv/config';
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -13,9 +15,10 @@ import authRoutes from './routes/auth.js';
 import * as fs from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-import { Buffer } from "buffer";
 
 const app=express();
 const PORT=4000;
@@ -122,7 +125,7 @@ async function generateContentFromGemini() {
 }
 
 
-import fetch from "node-fetch";
+
 async function fileToGenerativePart(blobUrl, mimeType) {
   const b64 = await fetch(blobUrl)
       .then((response) => response.buffer())

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const Signup = () => {
@@ -15,11 +15,15 @@ const Signup = () => {
             let password= refpass.current.value
         // console.log(uname,username,pass)
         await axios.post('http://localhost:4000/signup', {uname,username,password})
-        .then(res=>{
+        .then((res)=>{
             console.log(res.data);
-            navigate('/home');
-        }).catch(error=>{
-            console.log(error);
+            if(res.data.msg==='Successfully Registered'){
+                navigate('/home');
+            }else{
+                alert(res.data.message)
+            }
+        }).catch((e)=>{
+            console.log(e);
         })
     }
   return (

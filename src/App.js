@@ -11,13 +11,13 @@ import Health from "./pages/health";
 import AboutUs from "./pages/aboutus";
 import Traffic from "./pages/traffic";
 import Imguploader from "./pages/Imguploader";
-import ImageAnalyzer from "./pages/imageanalyzer";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 
 
 const App=()=>{
   return(
+    <>
     <Router>
         <Routes>
         <Route path="/home" element={<Home />}></Route>
@@ -30,6 +30,7 @@ const App=()=>{
         <Route path="/Imguploader" element={<Imguploader />}></Route>
         </Routes>
     </Router>
+    </>
   )
 }
 export default App;

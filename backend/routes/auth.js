@@ -31,7 +31,7 @@ router.post('/login',
          // console.log(req.user);
          const user = req.user;
          res.send({msg:"Successfully Logged In",user:user});
-        
+        // window.location.href = "http://localhost:3000/home";
      }
 ) 
 

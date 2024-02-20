@@ -18,7 +18,13 @@ const Login = () => {
         await axios.post('http://localhost:4000/login', {username,password})
         .then(res=>{
             console.log(res);
-            navigate('/home');})
+            // navigate('/home');
+            if(res.data.msg==="Successfully Logged In"){
+                navigate('/home');
+            }else{
+                alert("Invalid Username or Password");
+            }
+        })
         .catch(err=>{console.log(err)})
     }
 

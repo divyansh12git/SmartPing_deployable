@@ -21,7 +21,7 @@
 @tailwind utilities;
 
 .messagediv{
-    @apply h-auto w-auto  mx-5 self-end my-2  px-4 py-2 bg-[#4285F4] border border-black rounded-xl
+    @apply h-auto w-auto max-w-96  mx-5 self-end my-2 text-white px-4 py-2 bg-[#4285F4] border border-black rounded-xl
 }
 .responsediv{
     @apply h-auto w-auto max-w-96  mx-5 self-start my-2 px-4 py-2 bg-white border border-black rounded-xl

@@ -152,14 +152,14 @@ async function imageToInput(file,promptData) {
   console.log(file);
   console.log(promptData);
 
-  const imageParts = [
-    fileToGenerativePart(file, "image/png"),
-  ];
+  // const imageParts = [
+  //   fileToGenerativePart(`abc.png`, "image/png"),
+  // ];
 
   // const result = await model.generateContent([prompt, ...imageParts]);
   // const response = await result.response;
   // const text = response.text();
-  console.log(imageParts);
+  // console.log(text);
 }
 
 //firebase connection
@@ -188,7 +188,7 @@ app.post("/imageprompt",async(req,res)=>{
 
 const data={
     response:"server",
-    directory:__dirname
+    directory:"abc"
 }
 app.get('/',(req,res)=>{
     res.json(data);

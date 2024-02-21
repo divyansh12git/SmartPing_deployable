@@ -18,7 +18,7 @@ const Signup = () => {
         .then((res)=>{
             console.log(res.data);
             if(res.data.msg==='Successfully Registered'){
-                navigate('/home');
+                navigate('/');
             }else{
                 alert(res.data.message)
             }

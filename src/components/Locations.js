@@ -31,11 +31,11 @@ function Locations() {
     }, [latitude, longitude]) 
 
   return (
-    <div className='App'>
+    <div className='App justify-start flex w-full '>
         {responseData && responseData.name && (
-          <div>
-          <h1 className='text-xl'>Welcome </h1>
-          <h2><ImLocation />{responseData.name}</h2>
+          <div className='flex justify-center items-center '>
+          <h2 ><ImLocation /></h2>
+          <h2 className=' text-[1.5rem]'>{responseData.name}</h2>
           </div>
         )}
       </div> 

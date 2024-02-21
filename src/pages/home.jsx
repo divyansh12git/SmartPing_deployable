@@ -58,11 +58,13 @@ const AppLabel = styled.span`
 
 function Home() {
 
-  const [city, updateCity] = useState();
+  const [city, updateCity] = useState("");
   const [weather, updateWeather] = useState();
 
   const [healthTip,setHealthTip]=useState("...");
   const [greet,setGreet]=useState("...");
+
+  // const tasks = useSelector((state) => state.userData);
   useEffect(()=>{
     // console.log("Hiiii")
     async function fetchdata(){
@@ -89,12 +91,12 @@ function Home() {
     <NavBar tcolor={"text-[#4285F4]"}/>
     <div className='h-[100%] w-full flex  items-center  flex-col'>
     <div className='w-full flex flex-col pl-16 '>
-      <p className='text-[3rem] justify-self-start'>Welcome Divyansh</p>
-      <p className='ml-8 text-[1.5rem]'>Patna, Bihar</p>
+      <p className='text-[3rem] justify-self-start'>Welcome {JSON.parse(localStorage.getItem('user')).uname}</p>
+      <Locations /> 
     </div>
     
     
-      <Locations />
+      
       <div className='flex justify-center w-full '>
         <div className='flex relative items-end'>
           
@@ -106,7 +108,7 @@ function Home() {
       {city && weather ? (
         <WeatherComponent weather={weather} city={city} />
       ) : (
-        <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
+        <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} city={city} />
       )}
     </Container>
     

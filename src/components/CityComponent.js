@@ -41,7 +41,7 @@ const WelcomeWeatherLogo = styled.img`
   margin: 40px auto;
 `;
 const CityComponent = (props) => {
-  const { updateCity, fetchWeather } = props;
+  const { updateCity, fetchWeather,city } = props;
   return (
     <>
       <WelcomeWeatherLogo src={"/icons/perfect-day.svg"} />
@@ -51,7 +51,7 @@ const CityComponent = (props) => {
           onChange={(e) => updateCity(e.target.value)}
           placeholder="City"
         />
-        <button type={"submit"}>Search</button>
+        <button type={"submit"} onClick={()=>{localStorage.setItem("location",JSON.stringify(city))}}>Search</button>
       </SearchBox>
     </>
   );

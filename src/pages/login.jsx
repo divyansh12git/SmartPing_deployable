@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
+// import {action} from '../store/index'
+// import { useDispatch } from 'react-redux'
 const Login = () => {
     let refusername= useRef();
     let refpassword= useRef();
@@ -11,7 +12,7 @@ const Login = () => {
         navigate('/signup')
     }
      
-   
+    // const dispatch=useDispatch();
     
 
     const loginHandler=async(e)=>{
@@ -23,6 +24,7 @@ const Login = () => {
             console.log(res);
             // navigate('/home');
             if(res.data.msg==="Successfully Logged In"){
+                localStorage.setItem("location",JSON.stringify("Enter your city"));
                 localStorage.setItem('user',JSON.stringify(res.data.user));
                 
                 navigate('/home');

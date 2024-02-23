@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# SmartPing
+Experience the future of smart technology with SmartPing. Our platform seamlessly integrates AI to enhance your digital resources, making management effortless and efficient. Discover the endless possibilities of a smarter city life on our website, where user-friendly design meets cutting-edge innovation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project OverView
+SmartPing is committed to promoting sustainable development by addressing key health issues in smart cities. SmartPing is dedicated to integrating these features to promote sustainable development and address health issues in smart cities, making it your ideal platform for smart living.
 
-## Available Scripts
+## Features
+1. ### Personalized Dashboard
+    SmartPing's personalized dashboard, powered by Gemini AI, provides tailored health advice and greetings based on your health data. It also integrates weather APIs to offer real-time weather updates for your location, helping you stay informed and plan your activities effectively.
+2. ### Chatbot
+   SmartPing's Chatbot facility serves as a virtual assistant, providing users with real-time support and assistance. Harnessing natural language processing capabilities, the Chatbot uses Gemini API in which we already set some parameters to respond to user, hence addresses user inquiries, offering guidance, information, and troubleshooting assistance regarding sustainabilty, green city and address health related issues.
+3. ### Health Assistance
+    SmartPing's Health Analyzer is a powerful tool that offers personalized health insights based on user inputs. It provides precautions and cures for specific diseases, leveraging the Gemini API's LLM model for accurate results. Additionally, the Health Analyzer features a curated selection of health-related blogs to keep users informed and engaged in their health journey.
+4. ### Image Analyzer
+   SmartPing's Image Analyzer is a cutting-edge feature that promotes sustainability and environmental consciousness. It converts user-input images and text prompts into responses that advocate for sustainable practices. This feature encourages users to adopt eco-friendly behaviors and contribute to a greener future.
+5. ### Traffic Analyzer
+   SmartPing's upcoming Traffic Suggester which is in developing phase feature will revolutionize your travel experience. By leveraging the Google Maps API, it provides the best route recommendations to your destination. Whether you're commuting to work or planning a road trip, Traffic Suggester ensures you reach your destination efficiently and hassle-free. Stay tuned for this exciting new addition!
 
-In the project directory, you can run:
+## Tech Stack
+- **Frontend** : HTML, CSS, JavaScript, ReactJS
+- **Database** : MongoDB
+- **Authentication** : Passport.js
+- **Backend**: NodeJS
+- **API** :  Gemini API, Google Maps API, Weather API
 
-### `npm start`
+## Phases
+  ### Phase-1:
+  - Dashboard
+  - Chatbot
+  - Image Analyzer
+  - Health Assistance
+  ### Phase-2 (future)
+  - Traffic Analyzer
+  - Information Processing
+      - in upcoming phase we will make our webApp more personalized by understanding the way the user interact with the webapp by using Machine Learning Algorithm.
+## Project Setup
+  1. Clone this repository to your local system
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+     ```
+     git clone https://github.com/divyansh12git/SmartPing.git
+     ```
+  3. Update package
+     
+    
+    npm i
+    cd backend
+    npm i
+    
+    
+  5. set up api key for Gemini API
+     for this got to [API setup](https://ai.google.dev/)
+     ```
+     
+  7. Run the server
+  8. Run the frontend in another terminal

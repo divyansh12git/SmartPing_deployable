@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const Signup = () => {
+    const serverUrl="https://smartping.onrender.com";
+    // const serverUrl="http://localhost:4000";
+
+
     let navigate = useNavigate();
     let refname = useRef();
     let refusername = useRef();
@@ -14,7 +18,7 @@ const Signup = () => {
             let username= refusername.current.value
             let password= refpass.current.value
         // console.log(uname,username,pass)
-        await axios.post('http://localhost:4000/signup', {uname,username,password})
+        await axios.post(`${serverUrl}/signup`, {uname,username,password})
         .then((res)=>{
             console.log(res.data);
             if(res.data.msg==='Successfully Registered'){

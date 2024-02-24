@@ -4,6 +4,8 @@ import axios from 'axios'
 // import {action} from '../store/index'
 // import { useDispatch } from 'react-redux'
 const Login = () => {
+    const serverUrl="https://smartping.onrender.com";
+    // const serverUrl="http://localhost:4000";
     let refusername= useRef();
     let refpassword= useRef();
 
@@ -19,7 +21,7 @@ const Login = () => {
         e.preventDefault();
         let username= refusername.current.value
         let password= refpassword.current.value
-        await axios.post('http://localhost:4000/login', {username,password})
+        await axios.post(`${serverUrl}/login`, {username,password})
         .then(res=>{
             console.log(res);
             // navigate('/home');

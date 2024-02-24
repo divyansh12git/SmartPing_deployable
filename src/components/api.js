@@ -1,13 +1,13 @@
 import axios from "axios";
 import removeMarkdown from "markdown-to-text";
-
-
+const serverUrl="https://smartping.onrender.com";
+// const serverUrl="http://localhost:4000"
 const sendToGemini=async(data)=>{
     console.log("Sending data to gemii");
     data={
         userInput:data
     }
-    let response=await axios.post("http://localhost:4000/chatbot",data,{
+    let response=await axios.post(`${serverUrl}/chatbot`,data,{
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }}).then(response=>{
@@ -28,7 +28,7 @@ const sentToGeminiVision=async(datafile,promptdata)=>{
         prompt:promptdata,
         file:datafile
     }
-    let response=await axios.post("http://localhost:4000/imageprompt",data,{
+    let response=await axios.post(`${serverUrl}/imageprompt`,data,{
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }}).then(response=>{
@@ -43,13 +43,13 @@ const sentToGeminiVision=async(datafile,promptdata)=>{
 }
 
 const getHealthTip=async()=>{
-    let response=await axios.get("http://localhost:4000/getgeminicontent")
+    let response=await axios.get(`${serverUrl}/getgeminicontent`)
     console.log(response);
     return response;
 }
 
 const getPersonalizedResponse=async()=>{
-    let response=await axios.get("http://localhost:4000/getgeminipersonalized")
+    let response=await axios.get(`${serverUrl}/getgeminipersonalized`)
     // await removeMarkdown(response);
     console.log(response);
     return response;

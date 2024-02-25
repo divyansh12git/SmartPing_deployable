@@ -6,7 +6,7 @@ function NavBar(props) {
   //let color=props.tcolor;
   let navigate = useNavigate();
   const logoutHandler=async()=>{
-    await axios.get('http://localhost:4000/logout')
+    await axios.get('https://smartping.onrender.com/logout')
     .then((res)=>{
       console.log(res.data);
       navigate('/')
